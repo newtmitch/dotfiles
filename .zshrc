@@ -244,12 +244,14 @@ eval "$(starship init zsh)"
 #   fi
 # }
 
-# AWS settings
+# AWS shit
 export AWS_PAGER=""
+alias awswho='aws sts get-caller-identity'
 
 # asdf
 export ASDF_DIR="$HOME/.asdf"
 "$HOME/.asdf/asdf.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.config/.p10k.zsh ]] || source ~/.config/.p10k.zsh
+[[ ! -f ~/.config/p10k.zsh ]] || source ~/.config/p10k.zsh
+
