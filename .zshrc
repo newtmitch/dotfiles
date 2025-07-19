@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mitch/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # if [ -f /etc/profile ]; then
 #     PATH=""
@@ -99,7 +99,7 @@ ZSH_CUSTOM=~/.config/oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
 # removed plugins for speed and based on how often they're used. Add them back in if needed
 #   doctl virtualenv docker-compose
-plugins=(git docker zsh-asdf-direnv)
+plugins=(git docker)
 
 # User configuration
 
@@ -252,8 +252,8 @@ export AWS_PAGER=""
 alias awswho='aws sts get-caller-identity'
 
 # asdf
-export ASDF_DIR="$HOME/.asdf"
-"$HOME/.asdf/asdf.sh"
+# export ASDF_DIR="$HOME/.asdf"
+# "$HOME/.asdf/asdf.sh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.config/p10k.zsh ]] || source ~/.config/p10k.zsh
