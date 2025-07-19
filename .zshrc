@@ -115,6 +115,9 @@ plugins=(git docker zsh-asdf-direnv)
 export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 
+# add local build nvim to the path in case we installed it manually
+export PATH=$PATH:/opt/nvim-linux-arm64/bin:/opt/nvim-linux-x86_64/bin
+
 # add Golang to the path
 # export PATH=$PATH:$(go env GOPATH)/bin
 
