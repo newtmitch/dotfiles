@@ -1,10 +1,17 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mitch/.oh-my-zsh
 
-if [ -f /etc/profile ]; then
-    PATH=""
-    source /etc/profile
-fi
+# if [ -f /etc/profile ]; then
+#     PATH=""
+#     source /etc/profile
+# fi
 
 # rsm: debug zsh load times
 # zmodload zsh/zprof
@@ -25,6 +32,7 @@ fi
 # ZSH_THEME="spaceship"
 
 
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs virtualenv)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs kubecontext)
@@ -91,7 +99,7 @@ ZSH_CUSTOM=~/.config/oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
 # removed plugins for speed and based on how often they're used. Add them back in if needed
 #   doctl virtualenv docker-compose
-plugins=(git docker)
+plugins=(git docker zsh-asdf-direnv)
 
 # User configuration
 
@@ -107,8 +115,11 @@ plugins=(git docker)
 export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 
+# add local build nvim to the path in case we installed it manually
+export PATH=$PATH:/opt/nvim-linux-arm64/bin:/opt/nvim-linux-x86_64/bin
+
 # add Golang to the path
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 #
 # NVM
@@ -124,7 +135,7 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # set up aliases for NVM so for most of the time when we don't need nvm, our shell loads faster
 # alias loadnvm='[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"'
 # load a default node so we have something when we don't have nvm loaded
-export PATH="$PATH:/Users/mitch/.nvm/versions/node/v18.17.1/bin"
+# export PATH="$PATH:/Users/mitch/.nvm/versions/node/v20.11.1/bin"
 # alias setnpmbin=PATH='$PATH:$(npm config get prefix)/bin'
 
 # add yarn to the path - we install via the following command from the yarn website because
@@ -211,9 +222,6 @@ if [ -f '/Users/mitch/Dev/google-cloud-sdk/completion.zsh.inc' ]; then source '/
 alias setminikubedocker='eval $(minikube docker-env)'
 alias unsetminikubedocker='eval "$(docker-machine env -u)"'
 
-# flutter
-export PATH="$PATH:$HOME/dev/flutter/bin"
-
 # starship
 eval "$(starship init zsh)"
 
@@ -222,20 +230,31 @@ eval "$(starship init zsh)"
 # placeholder nvm shell function
 # On first use, it will set nvm up properly which will replace the `nvm`
 # shell function with the real one
-nvm() {
-  if [[ -d "$HOME/.nvm" ]]; then
-    NVM_DIR="$HOME/.nvm"
-    export NVM_DIR
-    # shellcheck disable=SC1090
-    source "${NVM_DIR}/nvm.sh"
-    if [[ -e ~/.nvm/alias/default ]]; then
-      PATH="${PATH}:${HOME}/.nvm/versions/node/$(cat ~/.nvm/alias/default)/bin"
-    fi
-    # invoke the real nvm function now
-    nvm "$@"
-  else
-    echo "nvm is not installed" >&2
-    return 1
-  fi
-}
+# nvm() {
+#   if [[ -d "$HOME/.nvm" ]]; then
+#     NVM_DIR="$HOME/.nvm"
+#     export NVM_DIR
+#     # shellcheck disable=SC1090
+#     source "${NVM_DIR}/nvm.sh"
+#     if [[ -e ~/.nvm/alias/default ]]; then
+#       PATH="${PATH}:${HOME}/.nvm/versions/node/$(cat ~/.nvm/alias/default)/bin"
+#     fi
+#     # invoke the real nvm function now
+#     nvm "$@"
+#   else
+#     echo "nvm is not installed" >&2
+#     return 1
+#   fi
+# }
+
+# AWS shit
+export AWS_PAGER=""
+alias awswho='aws sts get-caller-identity'
+
+# asdf
+export ASDF_DIR="$HOME/.asdf"
+"$HOME/.asdf/asdf.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.config/p10k.zsh ]] || source ~/.config/p10k.zsh
 
