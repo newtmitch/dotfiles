@@ -8,10 +8,10 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/mitch/.oh-my-zsh
 
-if [ -f /etc/profile ]; then
-    PATH=""
-    source /etc/profile
-fi
+# if [ -f /etc/profile ]; then
+#     PATH=""
+#     source /etc/profile
+# fi
 
 # rsm: debug zsh load times
 # zmodload zsh/zprof
@@ -116,7 +116,7 @@ export PATH=/opt/homebrew/bin:/usr/local/bin:$PATH
 export PATH=$PATH:"/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 
 # add Golang to the path
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 #
 # NVM
