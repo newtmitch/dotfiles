@@ -8,6 +8,14 @@
         "color": "cyan"
       },
       {
+        "id": "8176527b-06e2-40a3-8d0b-593d4f601863",
+        "type": "separator"
+      },
+      {
+        "id": "bbcd524e-216f-431b-95a2-af0c7b9fa57f",
+        "type": "thinking-effort"
+      },
+      {
         "id": "2",
         "type": "separator"
       },
@@ -18,6 +26,22 @@
       },
       {
         "id": "4",
+        "type": "separator"
+      },
+      {
+        "id": "b3064690-b7b7-4554-886d-4880adc9ab62",
+        "type": "reset-timer"
+      },
+      {
+        "id": "2e315df6-1654-4f9a-b626-514c1e119816",
+        "type": "separator"
+      },
+      {
+        "id": "9a843fff-5958-483b-b7db-159f581f0451",
+        "type": "session-usage"
+      },
+      {
+        "id": "a52ebd3a-de7c-48b1-b75b-e66ce6aa2f2d",
         "type": "separator"
       },
       {
@@ -43,6 +67,22 @@
           "abbreviateHome": "true",
           "segments": "2"
         }
+      },
+      {
+        "id": "1d754870-900f-47e9-8e64-42fe48b86040",
+        "type": "separator"
+      },
+      {
+        "id": "ce3b2cfc-ac22-45a4-a78f-036d12d3adb1",
+        "type": "weekly-usage"
+      },
+      {
+        "id": "bffb527a-b13e-40fd-94bf-d579fbf9d04d",
+        "type": "separator"
+      },
+      {
+        "id": "7010a4dc-c3ab-4739-b8f1-2dd003d816a6",
+        "type": "weekly-reset-timer"
       }
     ],
     []
